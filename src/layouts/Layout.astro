@@ -1,0 +1,48 @@
+---
+import NavItem from '../components/NavItem.astro'
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class='antialiased grid grid-cols-1 grid-rows-[auto_1fr_auto]'>
+    <header
+      class='flex justify-between px-8 py-4 items-center bg-white w-full fixed z-10'
+    >
+      <div class='flex flex-grow basis-0 gap-2 items-center'>
+        <img src='/logo.svg' class='w-8 h-8 bg-black rounded-full p-1' alt='' />
+        <span class='text-2xl font-semibold'>ignition</span>
+      </div>
+
+      <ul class='flex gap-16'>
+        <li><NavItem title='Product' href='' /></li>
+        <li><NavItem title='Company' href='' /></li>
+        <li><NavItem title='Pricing' href='' /></li>
+        <li><NavItem title='Resources' href='' /></li>
+      </ul>
+
+      <div class='flex flex-grow basis-0 gap-3 justify-end'>
+        <a class='px-4 py-2 font-semibold'> Login</a>
+
+        <a class='px-4 py-2 bg-black text-white font-semibold rounded-lg'>
+          Sign up</a
+        >
+      </div>
+    </header>
+    <!-- Change this padding -->
+    <div class='pt-36'></div>
+    <slot />
+  </body>
+</html>

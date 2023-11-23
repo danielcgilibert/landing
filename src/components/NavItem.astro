@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string
+  href: string
+}
+
+const { href, title } = Astro.props
+---
+
+<>
+  <div class='relative'>
+    <button
+      class='flex items-center gap-1'
+      type='button'
+      id='dropdownMenuButton'
+      data-toggle='dropdown'
+      aria-expanded='false'
+      aria-haspopup='menu'
+    >
+      {title}
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='18'
+        height='18'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='1.5'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        class='lucide lucide-chevron-down'><path d='m6 9 6 6 6-6'></path></svg
+      >
+    </button>
+
+    <div
+      class='z-10 absolute right-0 bg-white border opacity-0 pointer-events-none shadow rounded-xl px-8 py-4 dropdown transition-all'
+    >
+      <ul>
+        <li>Uno</li>
+        <li>Uno</li>
+        <li>Uno</li>
+        <li>Uno</li>
+        <li>Uno</li>
+      </ul>
+    </div>
+  </div>
+</>
+
+<script>
+  document.querySelectorAll('[data-toggle="dropdown"]').forEach((el) =>
+    el.addEventListener('click', () => {
+      const dropdown = el.nextElementSibling
+      dropdown.classList.toggle('opacity-0')
+      dropdown.classList.toggle('pointer-events-none')
+    }),
+  )
+</script>
